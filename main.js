@@ -30,16 +30,21 @@ let kristen = { name: "Kristen Grimm",
 function nameInfo (name, party, district, headImg){
   return '<div id="nameInfoBlock">' + `<p id="mainName">${name}</p>` + `<p id="party">${party}</p>` + `<p id="district">${district}</p>`+ `<img id="imgSrc" src="${headImg}">` + '</div>';
 };
-function changeImage (imgLoc, newImg){
-  imgLoc = newImg;
-  return imgLoc;
+function changeElement (elemLoc, newElem){
+  elemLoc = newElem;
+  return elemLoc;
 };
+function addImage (imageLoc, newImage){
+  imageLoc.push({component: "gallery", newImage});
+}
 
 const divElements = [];
 
-
-kristen.image[0].content = changeImage (kristen.image[0].content, "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/38013958_214334149254228_4465639838825054208_o.jpg?_nc_cat=110&oh=1395e15d9ba46a5e60752d6edd857226&oe=5C5DBCC6");
+console.table(kristen);
+kristen.image[0].content = changeElement (kristen.image[0].content, "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/38013958_214334149254228_4465639838825054208_o.jpg?_nc_cat=110&oh=1395e15d9ba46a5e60752d6edd857226&oe=5C5DBCC6");
+kristen.platform[0].platformType = changeElement (kristen.platform[0].platformType, "Higher Education");
+addImage (kristen.image, "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/38013958_214334149254228_4465639838825054208_o.jpg?_nc_cat=110&oh=1395e15d9ba46a5e60752d6edd857226&oe=5C5DBCC6");
 divElements.push(nameInfo(kristen.name, kristen.party, kristen.district, kristen.image[0].content));
-
+console.table(kristen);
 divElements.join("");
 document.body.innerHTML = divElements;
